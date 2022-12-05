@@ -5,7 +5,7 @@ import numpy as np
 sns.set()   
 
 def is_True(c):
-    return c == 'y' or c == 'Y' or c == '1' or c == 'True' or c == 'yes' or c == 'Yes'
+    return c == 'y' or c == 'Y' or c == '1' or c == 'True' or c == 'yes' or c == 'Yes' or c == ''
 
 
 #Это просто базовые вопросы 
