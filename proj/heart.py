@@ -42,7 +42,7 @@ elif desired == 'c':
     make_latex_table_with_separator_between_columns(data)
     
     print('Введите фиксированную длину столбца')
-    len_array = int(input())
+    len_array = [int(input()) for _ in range(3)]
     
     make_latex_table_with_length_columns(data, len_array)
     '''
