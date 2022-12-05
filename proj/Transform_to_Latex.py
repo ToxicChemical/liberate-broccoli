@@ -85,8 +85,3 @@ def make_latex_table_with_length_columns(data, len_array):
     table.append("\end{tabular}".replace('/', '\\'))
     table.append("\end{table}".replace('/', '\\'))
     return table
-
-len_array = [2, 3, 4]
-Q = pd.read_excel(r'C:\Users\user\liberate-broccoli\proj\l.xlsx')
-for i in make_latex_table_with_borders(Q):
-    print(i)
