@@ -20,7 +20,6 @@ desired = input()
 if desired == 'a':
     execute_Excel_Read()
 elif desired == 'b':  
-    read_csv(file_name)
     make_latex_table_with_borders(data)
     make_latex_table_without_borders(data)
     make_latex_table_with_separator_between_columns(data)
