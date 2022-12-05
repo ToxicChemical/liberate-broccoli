@@ -4,7 +4,7 @@ import csv
 
 def read_csv(file_name):
     with open(file_name) as file:
-        reader = list(csv.reader(file, delimiter=',',
+        reader = list(pd.read_excel(file, delimiter=',',
                       quotechar=',', quoting=csv.QUOTE_MINIMAL))
     return reader
 
