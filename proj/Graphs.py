@@ -26,7 +26,7 @@ def fitline(xdata, xerror, ydata, yerror, col, ROUND_ON_GRAPH_TO, ROUND_IN_FILE_
     f = open('settings', 'r', encoding='utf-8')
     [k, b] = np.polyfit(np.array(xdata), np.array(ydata), 1)
     plt.scatter(xdata, ydata, color=col)
-    #plt.errorbar(X, Y, xerr=erX, yerr=erY, fmt="o", color=col)
+    plt.errorbar(xdata, ydata, xerr=xerror, yerr=yerror, fmt="o", color=col)
     x = np.linspace(min(xdata) * 0.9, max(xdata) * 1.1, 100)
     strL = r'$Y \approx$ ' + str(round(k, ROUND_ON_GRAPH_TO)) + ' $X$ + ' + str(round(b, ROUND_ON_GRAPH_TO));
     [k, dk, b, db] = count_MNK(xdata, ydata)
@@ -40,7 +40,7 @@ def fitline(xdata, xerror, ydata, yerror, col, ROUND_ON_GRAPH_TO, ROUND_IN_FILE_
 def QuestionsGraphs():
     print("Retain previous settings? y/n")
     if (not is_True(input())):
-        print("Build a graph in just a few seconds!")
+        print('Build a graph in just a few seconds!')
         print('X-axis name?(latex)')
         X_axis = input()
         print('Y-axis name?(latex)')
@@ -49,15 +49,25 @@ def QuestionsGraphs():
         ROUND_ON_GRAPH_TO = int(input())
         print("Round to what precision on output?(Number of symbols after dot)")
         ROUND_IN_FILE_TO = int(input())
+        print('do you need constant error bars? y/n')
+        inp = input()
+        erX = ery = 0
+        if (is_True(inp)):
+            print('error of X?')
+            erX = float(input())
+            print('error of Y?')
+            erY = float(input())
         f = open('settings', 'w', encoding='utf-8')
-        f.write(X_axis + '\n' + Y_axis + '\n' + str(ROUND_ON_GRAPH_TO) + '\n' + str(ROUND_IN_FILE_TO))
+        f.write(X_axis + '\n' + Y_axis + '\n' + str(ROUND_ON_GRAPH_TO) + '\n' + str(ROUND_IN_FILE_TO) + '\n' + str(erX) + '\n' + str(erY))
         f.close()
 
 def PlotBuild(graph_index):
     f = open('settings', 'r', encoding='utf-8')
-    [X_axis, Y_axis, ROUND_ON_GRAPH_TO, ROUND_IN_FILE_TO] = f.read().split('\n')
+    [X_axis, Y_axis, ROUND_ON_GRAPH_TO, ROUND_IN_FILE_TO, erx, ery] = f.read().split('\n')
     ROUND_ON_GRAPH_TO = int(ROUND_ON_GRAPH_TO)
     ROUND_IN_FILE_TO = int(ROUND_IN_FILE_TO)
+    erx = float(erx)
+    ery = float(ery)
     f.close()
     f = open('plotfile', "r", encoding="utf-8")
     ar = list(map(lambda x: x.rstrip().split(), f.readlines()))
@@ -75,8 +85,8 @@ def PlotBuild(graph_index):
     for [x, y] in ar:
         X.append(x)
         Y.append(y)
-        erX.append(0)
-        erY.append(0)
+        erX.append(erx)
+        erY.append(ery)
     fitline(X, erX, Y, erY, 'green', ROUND_ON_GRAPH_TO, ROUND_IN_FILE_TO, graph_index)
     plt.scatter(X, Y, s=20)
     plt.legend()
