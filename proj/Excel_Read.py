@@ -16,10 +16,8 @@ def plotfile(data, x_name, y_name):
 def execute_Excel_Read():
     print('Число графиков:')
     plot_num = int(input())  #Ввод числа графиков (опционально)
-
     print('Путь сохранения:')
     path = input()  # Ввод пути папки сохранения
-    # path = '/home/fima/Documents/uni/labs/' + lab_num + '/figs/graph_' + graph_num + '.png'
     print('Имя .xlsx файла(data по default(оставьте строчку пустой))')
     name = input()
     if (name == ''):
@@ -28,11 +26,11 @@ def execute_Excel_Read():
     QuestionsGraphs()
     # gystfile(data)
     for i in range(plot_num):
-        print('XY-координаты' + str(i) + '-го графика(через пробел, названия не содержат пробелы)')
+        print('XY-координаты ' + str(i) + '-го графика(через пробел, названия не содержат пробелы)? ')
         x, y = input().split()   # Ввод x,y координат i-го графика
         plotfile(data, x, y)
         # tablefile(data)
-        PlotBuild()
+        PlotBuild(i)
     PlotShow(path)
 # print('Вид таблиции:')
 # table_name = input()
