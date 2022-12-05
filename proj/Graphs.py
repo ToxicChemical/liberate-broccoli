@@ -83,7 +83,7 @@ def PlotBuild(graph_index):
 
 def PlotShow(path):
     print("Display or save(to path specified earlier). Display? y/n")
-    if is_True(input()):
+    if path == '' or is_True(input()):
         plt.show()
     else:
         plt.savefig(path)  # save the figure to file
