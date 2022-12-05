@@ -24,7 +24,7 @@ elif desired == 'b':
     make_latex_table_without_borders(data)
     make_latex_table_with_separator_between_columns(data)
     
-    print('Введите фиксированную длину столбца')
+    print('Введите фиксированную длину столбца  (для [int(input()) for _ in range(3)] )')
     len_array = [int(input()) for _ in range(3)]
 
     make_latex_table_with_length_columns(data, len_array)
