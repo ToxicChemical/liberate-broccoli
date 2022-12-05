@@ -7,7 +7,6 @@ def plotfile(data, x_name, y_name):
         for i in range(len(df)):
             print(df.iloc[i][x_name], df.iloc[i][y_name], file=f, sep=' ')
 
-
 def tablefile(df):
     with(open('tablefile', 'w') as f):
         for i in df.columns:
@@ -15,7 +14,6 @@ def tablefile(df):
             for j in df[i].tolist():
                 s += ' & ' + str(j)
             print(i + s, file=f)
-
 
 plot_num = int(input())
 path = input()
