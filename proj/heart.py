@@ -26,11 +26,11 @@ elif desired == 'b':
     
     print('Введите фиксированную длину столбца')
     len_array = [int(input()) for _ in range(3)]
-    
+
     make_latex_table_with_length_columns(data, len_array)
     
 elif desired == 'c':
-    gystfile(df)
+   
     print('Введите n_bins')
     n_bins = int(input())
     Gysto(n_bins)
