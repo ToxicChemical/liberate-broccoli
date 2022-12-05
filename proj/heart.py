@@ -66,5 +66,3 @@ def Gysto(n_bins):
 
     # Show plot
     plt.show()
-
-
