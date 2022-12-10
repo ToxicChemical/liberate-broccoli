@@ -1,0 +1,10 @@
+0: goto h0 g r90 g g r90 g r90 go2 +
+1: goto h-90 fa l135 G r135 g g + 
+2: goto h0 g r90 g r45 G l135 g +
+3: goto h0 g r135 G l135 g r135 G +
+4: goto h-90 g l90 g l90 g l180 g g + 
+5: goto h0 fa r180 g l90 g l90 g r90 g r90 g +
+6: goto h0 fa r135 G l135 g r90 g r90 g r90 g +
+7: goto h0 g r135 G l45 g +
+8: goto h0 g r90 g g r90 g r90 g r90 g r180 fa r90 g +
+9: goto h0 g r90 g r45 G r180 fb l135 g r90 g +
